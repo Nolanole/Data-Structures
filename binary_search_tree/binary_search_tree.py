@@ -30,22 +30,13 @@ class BinarySearchTree:
         if self.value == target:
             return True
         elif target < self.value:
-            if self.left is not None:
-                return self.left.contains(target)
-            else:
-                return False
+            return False if self.left is None else self.left.contains(target)
         else:
-            if self.right is not None:
-                return self.right.contains(target)
-            else:
-                return False
+            return False if self.right is None else self.right.contains(target)
 
     # Return the maximum value found in the tree
     def get_max(self):
-        if self.right is not None:
-            return self.right.get_max()
-        else:
-            return self.value
+        return self.value if self.right is None else self.right.get_max()
 
     # Call the function `cb` on the value of each node
     # You may use a recursive or iterative approach
@@ -69,6 +60,7 @@ class BinarySearchTree:
     # in an iterative breadth first traversal
     def bft_print(self, node):
         pass
+
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
